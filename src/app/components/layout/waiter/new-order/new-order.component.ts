@@ -31,6 +31,7 @@ export class NewOrderComponent implements OnInit{
   products: ProductInformation[] = [];
   takenProducts: TakeProduct[] = [];
   ticket!: CredentialOrder;
+  client: string = '';
 
   todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
 
@@ -60,10 +61,12 @@ export class NewOrderComponent implements OnInit{
       this.categories = new Set(cats);
       // console.log(this.categories);
     });
-    console.log(this.products);
-    debugger;
-    console.log(this.categories);
-    debugger;
+    this.ticket = {
+      client: "",
+      dataEntry: new Date().toString(),
+      products: [],
+      status: "pending"
+    };
   }
 
   // drop(event: CdkDragDrop<MatCard[]>){

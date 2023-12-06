@@ -44,34 +44,9 @@
   <!-- step for showing the resume of the order -->
   <mat-step [stepControl]="thirdFormGroup" label="Check the order">
     <form [formGroup]="thirdFormGroup">
-      <section class="products orderTickets">
-        <mat-card class="example-card">
-          <mat-card-header>
-            <mat-card-title>Burger Queen</mat-card-title>
-            <mat-card-subtitle>Ticket of the Order</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <section class="tab-ticket">
-              <strong>Qty</strong>
-              <strong>Product</strong>
-              <strong>Price</strong>
-              <strong>Total</strong>
 
-              <!-- <p *ngFor="let prod of ticket">
-                <span>{{prod.qty}}</span>
-                <span>{{prod.product.name}}</span>
-                <span>{{prod.product.price}}</span>
-                <span>{{prod.qty * prod.product.price}}</span>
-              </p> -->
-            </section>      
-            
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-button>LIKE</button>
-            <button mat-button>SHARE</button>
-          </mat-card-actions>
-        </mat-card>
-      </section>
+      <app-ticket-order [ticket]="ticket" [client]="firstFormGroup.value.firstCtrl || ''"></app-ticket-order>
+
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext class="next">Next</button>
