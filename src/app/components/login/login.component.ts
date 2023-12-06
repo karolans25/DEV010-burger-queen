@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         if (res.data !== null) {
           // this.toastr.success(`Welcome ${res.data.user.name} to Burger Queen`, 'Logged Succesfully');
           alert(`Welcome ${res.data.user.name} to Burger Queen \n Logged Succesfully`);
-          this.router.navigate(['']);
+          this.router.navigate(['home']);
         }
       });
     } else {
