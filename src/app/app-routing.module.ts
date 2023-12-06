@@ -7,6 +7,7 @@ import { AdminLayoutComponent } from './components/layout/admin-layout/admin-lay
 import { ErrorComponent } from './components/error/error.component';
 import { authGuard } from 'src/app/core/guard/auth/auth.guard';
 import { NewOrderComponent } from './components/layout/waiter/new-order/new-order.component';
+import { OrdersComponent } from './components/layout/shared/orders/orders.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -16,7 +17,8 @@ const routes: Routes = [
     path: 'dashboard',
     component: AdminLayoutComponent,
     children:[
-      { path: 'newOrder', component: NewOrderComponent }
+      { path: 'newOrder', component: NewOrderComponent },
+      { path: 'orders', component: OrdersComponent }
     ]
   },
   { path: '**', component: ErrorComponent}

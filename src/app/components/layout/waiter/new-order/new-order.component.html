@@ -18,7 +18,7 @@
         <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
       </mat-form-field>
       <div>
-        <button mat-button matStepperNext class="next">Next</button>
+        <button mat-button color="primary" matStepperNext class="next">Next</button>
       </div>
     </form>
   </mat-step>
@@ -35,8 +35,8 @@
       <app-products-order (updateOrderProductsEvent)="createTicket($event)"></app-products-order>
 
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext class="next">Next</button>
+        <button mat-button color="primary" matStepperPrevious>Back</button>
+        <button mat-button color="primary" matStepperNext class="next">Next</button>
       </div>
     </form>
   </mat-step>
@@ -48,8 +48,8 @@
       <app-ticket-order [ticket]="ticket" [client]="firstFormGroup.value.firstCtrl || ''"></app-ticket-order>
 
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext class="next">Next</button>
+        <button mat-button color="primary" matStepperPrevious>Back</button>
+        <button mat-button color="primary" matStepperNext class="next">Next</button>
       </div>
     </form>
   </mat-step>
@@ -57,10 +57,10 @@
   <!-- step for confirm and send the order -->
   <mat-step>
     <ng-template matStepLabel>Send</ng-template>
-    <p>You are now done.</p>
-    <button mat-button (click)="createOrder()">Send Order to Kitchen</button>
+    <p>You are now done.<mat-icon>store</mat-icon></p>
+    <button mat-raised-button color="accent" (click)="createOrder()">Send Order to Kitchen</button>
     <div>
-      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button color="primary" matStepperPrevious>Back</button>
     </div>
   </mat-step>
 </mat-stepper>

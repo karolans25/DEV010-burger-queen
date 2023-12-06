@@ -9,6 +9,7 @@ import { DataService } from 'src/app/core/services/data/data.service';
 import { CredentialOrder, ProductInformation, TakeProduct } from 'src/app/core/interfaces';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { MatCard } from '@angular/material/card';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-order',
@@ -33,15 +34,12 @@ export class NewOrderComponent implements OnInit{
   ticket!: CredentialOrder;
   client: string = '';
 
-  todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
-
-  done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
-
   constructor(
     private _formBuilder: FormBuilder,
     // breakpointObserver: ReportingObserver,
     breakpointObserver: BreakpointObserver,
-    private data: DataService
+    private data: DataService,
+    private router: Router
   ) {
     this.stepperOrientation = breakpointObserver
     .observe('(min-width: 800px)')
@@ -98,8 +96,18 @@ export class NewOrderComponent implements OnInit{
   }
 
   createOrder(){
+    if(!this.firstFormGroup.valid){
+      alert('Please write the client\'s name');
+      return new Error('Please write the client\'s name');
+    }
+    if(this.ticket.products.length < 1){
+      alert('Please add at least 1 product');
+      return new Error('Please add at least 1 product');
+    }
     return this.data.createOrder(this.ticket).subscribe(res => {
       console.log(res);
+      alert('Order successfully taken!');
+      this.router.navigate(['dashboard/orders']);
     });
   }
 

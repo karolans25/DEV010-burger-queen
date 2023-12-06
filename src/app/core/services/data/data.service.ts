@@ -92,7 +92,7 @@ export class DataService {
     const url = `${this.apiUrl}/orders`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+      'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken')
     });
     // Configuración de parámetros de consulta
     // const params = new HttpParams()
@@ -118,7 +118,7 @@ export class DataService {
     const url = `${this.apiUrl}/statusOrder`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
+      'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken'),
       // 'Access-Control-Allow-Origin': this.apiUrl
     });
     return this.http.get(url, {headers: headers});
@@ -128,7 +128,7 @@ export class DataService {
     const url = `${this.apiUrl}/orders/${code}`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
+      'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken'),
       // 'Access-Control-Allow-Origin': this.apiUrl
     });
     return this.http.get(url, {headers: headers});
@@ -160,7 +160,7 @@ export class DataService {
     const url = `${this.apiUrl}/orders`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
+      'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken'),
       // 'Access-Control-Allow-Origin': this.apiUrl
     });
     console.log(inputdata);

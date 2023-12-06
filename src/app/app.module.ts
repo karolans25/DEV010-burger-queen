@@ -18,6 +18,7 @@ import { CardComponent } from './components/layout/waiter/card/card.component';
 import { AvailableProductsComponent } from './components/layout/waiter/available-products/available-products.component';
 import { ProductsOrderComponent } from './components/layout/waiter/products-order/products-order.component';
 import { TicketOrderComponent } from './components/layout/waiter/ticket-order/ticket-order.component';
+import { OrdersComponent } from './components/layout/shared/orders/orders.component';
 // import { HomeComponent } from './components/home/home.component';
 // import { ErrorComponent } from './components/error/error.component';
 // import { RegisterComponent } from './components/register/register.component';
@@ -40,7 +41,8 @@ import { TicketOrderComponent } from './components/layout/waiter/ticket-order/ti
     CardComponent,
     AvailableProductsComponent,
     ProductsOrderComponent,
-    TicketOrderComponent
+    TicketOrderComponent,
+    OrdersComponent
     // HomeComponent,
     // ErrorComponent,
     // RegisterComponent,

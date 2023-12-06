@@ -1,0 +1,14 @@
+section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    // flex-direction: row;
+    // align-items: flex-start;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+//   .demo-section + .demo-section {
+//     margin: 16px;
+//   }
+  
