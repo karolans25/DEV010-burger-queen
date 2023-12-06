@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
+// import { Router } from '@angular/router';
+// import { AuthService } from './core/services/auth/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'DEV010-burger-queen';
-  isMenuRequired = false;
 
+  // constructor(private router: Router, private auth: AuthService) { }
 }

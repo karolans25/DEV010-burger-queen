@@ -56,6 +56,7 @@ export class AuthService {
     });
     this.systemUser$.subscribe((user) => {
       // this.localStorageService.clearStorage();
+      sessionStorage.clear();
       if(user.accessToken !== '') {
         // this.localStorageService.setStorage('accessToken', user.accessToken);
         // this.localStorageService.setStorage('role', user.role);

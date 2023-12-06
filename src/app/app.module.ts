@@ -13,6 +13,11 @@ import { LoginComponent } from './components/login/login.component';
 import { AdminLayoutComponent } from './components/layout/admin-layout/admin-layout.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ErrorComponent } from './components/error/error.component';
+import { NewOrderComponent } from './components/layout/waiter/new-order/new-order.component';
+import { CardComponent } from './components/layout/waiter/card/card.component';
+import { AvailableProductsComponent } from './components/layout/waiter/available-products/available-products.component';
+import { ProductsOrderComponent } from './components/layout/waiter/products-order/products-order.component';
+import { TicketOrderComponent } from './components/layout/waiter/ticket-order/ticket-order.component';
 // import { HomeComponent } from './components/home/home.component';
 // import { ErrorComponent } from './components/error/error.component';
 // import { RegisterComponent } from './components/register/register.component';
@@ -30,7 +35,12 @@ import { ErrorComponent } from './components/error/error.component';
     LoginComponent,
     AdminLayoutComponent,
     RegisterComponent,
-    ErrorComponent
+    ErrorComponent,
+    NewOrderComponent,
+    CardComponent,
+    AvailableProductsComponent,
+    ProductsOrderComponent,
+    TicketOrderComponent
     // HomeComponent,
     // ErrorComponent,
     // RegisterComponent,

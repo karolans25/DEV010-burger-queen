@@ -1,0 +1,15 @@
+mat-stepper{
+    width: 90vw;
+    min-height: 95vh;
+    // height: 495px;
+    height: fit-content;
+    padding: 20px;
+    position: absolute;
+    top: 64px;
+    left: 3vw;
+}
+
+mat-divider {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

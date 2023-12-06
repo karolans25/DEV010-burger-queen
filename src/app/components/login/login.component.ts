@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   hide = true;
   isLoading = false;
   loginForm!: FormGroup;
+  // roles = 
 
   ngOnInit():void{
     this.createForm();
@@ -40,7 +41,16 @@ export class LoginComponent implements OnInit {
         if (res.data !== null) {
           // this.toastr.success(`Welcome ${res.data.user.name} to Burger Queen`, 'Logged Succesfully');
           alert(`Welcome ${res.data.user.name} to Burger Queen \n Logged Succesfully`);
-          this.router.navigate(['home']);
+          this.router.navigate(['dashboard']);
+          // const role = res.data.user.role;
+          // if(role == 'admin') {
+          //   this.router.navigate(['admin-dashboard']);
+          // } else if (role == 'chef'){
+          //   this.router.navigate(['chef-dashboard']);
+          // } else if (role == 'waiter'){
+          //   this.router.navigate(['waiter-dashboard']);
+          // }
+          // this.router.navigate(['login']);
         }
       });
     } else {
