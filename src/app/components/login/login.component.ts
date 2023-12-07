@@ -24,6 +24,12 @@ export class LoginComponent implements OnInit {
     this.createForm();
   }
 
+  ngOnDestroy() {
+    if (this.auth.loginResponse$) {
+      this.auth.loginResponse$.unsubscribe();
+    }
+  }
+
   createForm():void {
     this.loginForm = this.builder.group({
       // id: this.builder.control('', Validators.compose([Validators.required, Validators.minLength(5)])),

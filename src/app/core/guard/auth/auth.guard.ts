@@ -5,12 +5,10 @@ export const authGuard: CanActivateFn = (route, state) => {
   const router = new Router();
   const role = sessionStorage.getItem('role');
 
-  debugger;
   if(sessionStorage.getItem('idUser') !== null && sessionStorage.getItem('idUser') !== '' ) {
-    debugger;
     if(route.url.length > 0) {
       const menu = route.url[0].path;
-      if(menu === 'home'){
+      if(menu === 'dashboard'){
         if(role){
           return true;
         } else {

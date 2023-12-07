@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+    import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { AdminLayoutComponent } from './components/layout/admin-layout/admin-layout.component';
+import { LayoutComponent } from './components/layout/layout/layout.component';
 import { ErrorComponent } from './components/error/error.component';
 import { authGuard } from 'src/app/core/guard/auth/auth.guard';
 import { NewOrderComponent } from './components/layout/waiter/new-order/new-order.component';
 import { OrdersComponent } from './components/layout/shared/orders/orders.component';
+import { WaiterDashboardComponent } from './components/layout/waiter/waiter-dashboard/waiter-dashboard.component';
+import { ChefDashboardComponent } from './components/layout/chef/chef-dashboard/chef-dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -15,13 +17,17 @@ const routes: Routes = [
   { path: 'register',  component: RegisterComponent },
   {
     path: 'dashboard',
-    component: AdminLayoutComponent,
+    component: LayoutComponent,
     children:[
+      { path: 'waiter/orders', component: WaiterDashboardComponent },
+      { path: 'waiter/newOrder', component: NewOrderComponent },
+      { path: 'chef/orders', component: ChefDashboardComponent },
       { path: 'newOrder', component: NewOrderComponent },
       { path: 'orders', component: OrdersComponent }
-    ]
+    ],
+    canActivate: [authGuard]
   },
-  { path: '**', component: ErrorComponent}
+  { path: '**', component: ErrorComponent},
 ];
 
 @NgModule({

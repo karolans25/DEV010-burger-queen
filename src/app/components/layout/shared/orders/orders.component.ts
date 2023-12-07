@@ -46,12 +46,14 @@ export class OrdersComponent {
   }
 
   updateOrder(code: any){
-    const order = this.data.getOrderById(code).subscribe(res => {
+    const order = this.data.getOrderById(code).subscribe((res) => {
       if(this.role === 'waiter'){
         console.log(res);
+        // res.status = 'delivered';
       }
       if(this.role === 'chef'){
         console.log(res);
+        // res.status = 'ready';
       }  
     });
     // const popup = this.dialog.open(UpdatePopupComponent, {

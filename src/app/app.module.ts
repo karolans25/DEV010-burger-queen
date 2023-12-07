@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 // import { ToastrModule } from 'ngx-toastr';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { LoginComponent } from './components/login/login.component';
-import { AdminLayoutComponent } from './components/layout/admin-layout/admin-layout.component';
+import { LayoutComponent } from './components/layout/layout/layout.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ErrorComponent } from './components/error/error.component';
 import { NewOrderComponent } from './components/layout/waiter/new-order/new-order.component';
@@ -19,22 +19,14 @@ import { AvailableProductsComponent } from './components/layout/waiter/available
 import { ProductsOrderComponent } from './components/layout/waiter/products-order/products-order.component';
 import { TicketOrderComponent } from './components/layout/waiter/ticket-order/ticket-order.component';
 import { OrdersComponent } from './components/layout/shared/orders/orders.component';
-// import { HomeComponent } from './components/home/home.component';
-// import { ErrorComponent } from './components/error/error.component';
-// import { RegisterComponent } from './components/register/register.component';
-// import { LoginComponent } from './components/login/login.component';
-// import { UserListingComponent } from './components/admin/user-listing/user-listing.component';
-// import { UpdatePopupComponent } from './components/admin/update-popup/update-popup.component';
-// import { OrderListingComponent } from './components/home/order-listing/order-listing.component';
-// import { ProductCardComponent } from './components/home/product-card/product-card.component';
-// import { OrderTicketComponent } from './components/home/order-ticket/order-ticket.component';
-// import { OrderProductsComponent } from './components/home/order-products/order-products.component';
+import { WaiterDashboardComponent } from './components/layout/waiter/waiter-dashboard/waiter-dashboard.component';
+import { ChefDashboardComponent } from './components/layout/chef/chef-dashboard/chef-dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    AdminLayoutComponent,
+    LayoutComponent,
     RegisterComponent,
     ErrorComponent,
     NewOrderComponent,
@@ -42,17 +34,9 @@ import { OrdersComponent } from './components/layout/shared/orders/orders.compon
     AvailableProductsComponent,
     ProductsOrderComponent,
     TicketOrderComponent,
-    OrdersComponent
-    // HomeComponent,
-    // ErrorComponent,
-    // RegisterComponent,
-    // LoginComponent,
-    // UserListingComponent,
-    // UpdatePopupComponent,
-    // OrderListingComponent,
-    // ProductCardComponent,
-    // OrderTicketComponent,
-    // OrderProductsComponent
+    OrdersComponent,
+    WaiterDashboardComponent,
+    ChefDashboardComponent
   ],
   imports: [
     BrowserModule,

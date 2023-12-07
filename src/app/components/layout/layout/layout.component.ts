@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BURGER_CONSTANTS } from 'src/app/core/constant/burgerConstant';
+import { AuthService } from 'src/app/core/services/auth/authentication.service';
 
 interface Menu {
   path: string,
@@ -9,17 +11,22 @@ interface Menu {
 }
 
 @Component({
-  selector: 'app-admin-layout',
-  templateUrl: './admin-layout.component.html',
-  styleUrls: ['./admin-layout.component.scss']
+  selector: 'app-layout',
+  templateUrl: './layout.component.html',
+  styleUrls: ['./layout.component.scss']
 })
-export class AdminLayoutComponent {
-  // menu: { [key: string] : string | []} = { }
+export class LayoutComponent implements OnInit {
   menus: Menu[] = [];
   filteredMenus: Menu[] = [];
   role: string = '';
 
-  constructor(){
+  redirections: { [key: string]: string } = {
+    waiter: 'dashboard/waiter/orders',
+    chef: 'dashboard/chef/orders',
+    admin: 'dashboard/admin/users',
+  };
+
+  constructor(private route: Router, private auth: AuthService){
     this.menus = BURGER_CONSTANTS.menus as Menu[];
     
     const roles = BURGER_CONSTANTS.roles;
@@ -41,6 +48,19 @@ export class AdminLayoutComponent {
       // if (isRolePresent !== undefined){
       //   this.filteredMenus.push(element);
       // }
+    });
+
+  }
+
+  ngOnInit(){
+    this.auth.systemUser$.subscribe((user) => {
+      if (!user) {
+        this.route.navigate(['login']);
+        return;
+      } else {
+        const route = this.redirections[user.role];
+        this.route.navigate([route]);
+      }
     });
   }
 }

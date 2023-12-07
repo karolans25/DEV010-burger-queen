@@ -25,6 +25,12 @@ export class RegisterComponent implements OnInit{
     this.createForm();
   }
 
+  ngOnDestroy() {
+    if (this.auth.registerResponse$) {
+      this.auth.registerResponse$.unsubscribe();
+    }
+  }
+
   createForm():void {
     this.registerForm = this.builder.group({
       // id: this.builder.control('', Validators.compose([Validators.required, Validators.minLength(5)])),
