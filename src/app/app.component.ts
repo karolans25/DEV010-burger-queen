@@ -12,12 +12,6 @@ import { AuthService } from './core/services/auth/authentication.service';
 export class AppComponent {
   title = 'DEV010-burger-queen';
 
-  redirections: { [key: string]: string } = {
-    waiter: 'orders/inicio',
-    chef: '',
-    admin: '',
-  };
-
   constructor(public router: Router, private auth: AuthService) {}
 
   ngOnInit(): void {
@@ -26,8 +20,8 @@ export class AppComponent {
         this.router.navigate(['login']);
         return;
       } else {
-        const route = this.redirections[user.role];
-        this.router.navigate([route]);
+        // console.log(route);
+        // this.router.navigate(['dashboard']);
       }
     });
   }

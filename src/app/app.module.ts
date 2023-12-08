@@ -21,6 +21,7 @@ import { TicketOrderComponent } from './components/layout/waiter/ticket-order/ti
 import { OrdersComponent } from './components/layout/shared/orders/orders.component';
 import { WaiterDashboardComponent } from './components/layout/waiter/waiter-dashboard/waiter-dashboard.component';
 import { ChefDashboardComponent } from './components/layout/chef/chef-dashboard/chef-dashboard.component';
+import { ChefHomeComponent } from './components/layout/chef/chef-home/chef-home.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ChefDashboardComponent } from './components/layout/chef/chef-dashboard/
     TicketOrderComponent,
     OrdersComponent,
     WaiterDashboardComponent,
-    ChefDashboardComponent
+    ChefDashboardComponent,
+    ChefHomeComponent
   ],
   imports: [
     BrowserModule,

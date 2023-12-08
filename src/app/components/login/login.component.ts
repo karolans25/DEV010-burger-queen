@@ -19,16 +19,21 @@ export class LoginComponent implements OnInit {
   isLoading = false;
   loginForm!: FormGroup;
   // roles = 
+  redirections: { [key: string]: string } = {
+    waiter: 'db/w',
+    chef: 'db/c',
+    admin: 'db/a',
+  };
 
   ngOnInit():void{
     this.createForm();
   }
 
-  ngOnDestroy() {
-    if (this.auth.loginResponse$) {
-      this.auth.loginResponse$.unsubscribe();
-    }
-  }
+  // ngOnDestroy() {
+  //   if (this.auth.loginResponse$) {
+  //     this.auth.loginResponse$.unsubscribe();
+  //   }
+  // }
 
   createForm():void {
     this.loginForm = this.builder.group({
@@ -47,7 +52,11 @@ export class LoginComponent implements OnInit {
         if (res.data !== null) {
           // this.toastr.success(`Welcome ${res.data.user.name} to Burger Queen`, 'Logged Succesfully');
           alert(`Welcome ${res.data.user.name} to Burger Queen \n Logged Succesfully`);
-          this.router.navigate(['dashboard']);
+          const route = this.redirections[sessionStorage.getItem('role') || 'waiter'];
+          this.router.navigate([route]);
+        
+          // this.router.navigate([]);
+
           // const role = res.data.user.role;
           // if(role == 'admin') {
           //   this.router.navigate(['admin-dashboard']);

@@ -1,6 +1,6 @@
 import { CanActivateFn, Router } from '@angular/router';
 
-export const authGuard: CanActivateFn = (route, state) => {
+export const AuthGuard: CanActivateFn = (route, state) => {
 
   const router = new Router();
   const role = sessionStorage.getItem('role');
