@@ -52,8 +52,8 @@ export class LoginComponent implements OnInit {
         if (res.data !== null) {
           // this.toastr.success(`Welcome ${res.data.user.name} to Burger Queen`, 'Logged Succesfully');
           alert(`Welcome ${res.data.user.name} to Burger Queen \n Logged Succesfully`);
-          const route = this.redirections[sessionStorage.getItem('role') || 'waiter'];
-          this.router.navigate([route]);
+          // const route = this.redirections[sessionStorage.getItem('role') || 'waiter'];
+          this.router.navigate([sessionStorage.getItem('role') || '']);
         
           // this.router.navigate([]);
 

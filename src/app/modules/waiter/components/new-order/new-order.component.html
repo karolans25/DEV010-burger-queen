@@ -1,0 +1,66 @@
+<!-- @switch (stepperOrientation | async) {
+  @case ('horizontal') {
+    <div>Make your screen smaller to see a vertical stepper</div>
+  }
+  @case ('vertical') {
+    <div>Make your screen larger to see a horizontal stepper</div>
+  }
+} -->
+
+<mat-stepper
+  class="example-stepper"
+  [orientation]="(stepperOrientation | async)!">
+  <!-- step for Client name -->
+  <mat-step [stepControl]="firstFormGroup" label="Fill the client's name">
+    <form [formGroup]="firstFormGroup">
+      <mat-form-field>
+        <mat-label>Client's Name</mat-label>
+        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button color="primary" matStepperNext class="next">Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- step for taking the products of the order -->
+  <mat-step [stepControl]="secondFormGroup" label="Choose the products">
+    <form [formGroup]="secondFormGroup" cdkDropListGroup>
+      <h4>Available Products:</h4>
+
+      <app-available-products [products]="products" [categories]="categories"></app-available-products>     
+
+      <mat-divider></mat-divider>
+
+      <app-products-order (updateOrderProductsEvent)="createTicket($event)"></app-products-order>
+
+      <div>
+        <button mat-button color="primary" matStepperPrevious>Back</button>
+        <button mat-button color="primary" matStepperNext class="next">Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- step for showing the resume of the order -->
+  <mat-step [stepControl]="thirdFormGroup" label="Check the order">
+    <form [formGroup]="thirdFormGroup">
+
+      <app-ticket-order [ticket]="ticket" [client]="firstFormGroup.value.firstCtrl || ''"></app-ticket-order>
+
+      <div>
+        <button mat-button color="primary" matStepperPrevious>Back</button>
+        <button mat-button color="primary" matStepperNext class="next">Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- step for confirm and send the order -->
+  <mat-step>
+    <ng-template matStepLabel>Send</ng-template>
+    <p>You are now done.<mat-icon>store</mat-icon></p>
+    <button mat-raised-button color="accent" (click)="createOrder()">Send Order to Kitchen</button>
+    <div>
+      <button mat-button color="primary" matStepperPrevious>Back</button>
+    </div>
+  </mat-step>
+</mat-stepper>
